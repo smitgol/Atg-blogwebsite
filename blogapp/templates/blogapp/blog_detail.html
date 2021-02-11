@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="card mb-3 mt-5 mr-5 ml-5">
+    <img height="300px" width="50px" src="{{ object.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center">Title : -{{ object.title }}</h5>
+      <h5 class="card-title text-center mb-4">Description:- {{ object.description }}</h5>
+      <h6 class="text-center">This is {{ object.post_mode }} Post</h6>
+      {% if object.user == user %}
+          <div class="m-5 d-md-flex justify-content-center">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-5" href="{% url 'blog-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'blog-delete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+
+    </div>
+  </div>

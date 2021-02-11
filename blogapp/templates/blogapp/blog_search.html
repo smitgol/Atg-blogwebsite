@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container">
+  <h2 class="text-center h2 m-5">Search The Blog</h2>
+<form method='GET' class="row align-items-right m-5">
+    <input type='text' name='q' value='{{ request.GET.q }}' class="form-control w-25 ml-4">
+    <input class="btn btn-primary ml-5" type='submit' value="Search Blog" placeholder="Search the Blog">
+    </form>
+</div>
+  
+    <div class="container mt-5">
+      {% for post in posts %}
+      <article class="media content-section">
+        <div class="media-body border-bottom">
+          <h2>{{ forloop.counter }}<a class="article-title ml-5" href="{% url 'blog-detail' post.id %}">{{ post.title }}</a></h2>
+          <p class="article-content text-left ml-5">{{ post.description }}</p>
+        </div>
+      </article>
+  {% endfor %}
+  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+  <a class="btn btn-primary m-5" href="{% url 'home' %}">Back To Blog Home</a>
+  </div>
+
+  </div>

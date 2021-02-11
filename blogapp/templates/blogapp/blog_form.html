@@ -1,0 +1,16 @@
+<html>
+    {% load crispy_forms_tags %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="container m-5 ">
+    <h2 class="h2 text-center">Blog Form</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group m-5">
+            {{ form|crispy }}
+    </fieldset>
+    <div class="form-group d-md-flex justify-content-md-center">
+        <button class="btn btn-outline-info" type="submit">Submit</button>
+    </div>
+
+</form>
+</html>

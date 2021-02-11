@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="center-column m-5">
+    <h1 class="text-center m-5">{{ request.user }} Blog</h1>
+
+    <div class="d-grid gap-5 d-md-flex justify-content-md-center">
+        <h2 class="text-left mr-5">Thus are the blog</h2>
+    <a href="{% url 'blog-create' %}" type="button" class="btn btn-primary ml-5 mr-5">Create New Blog</a>
+    <a href="{% url 'blog-search' %}" type="button" class="btn btn-primary ml-5">Search Blog</a>
+    <a href="{% url 'logout' %}" type="button" class="btn btn-primary ml-5">logout</a>
+    </div>
+
+    <div class="container mt-5">
+      {% if posts == None %}
+        <h2 class="text-center">Sorry No post Uploaded</h2>
+        {% endif %}
+    {% for post in posts %}
+    <article class="media content-section">
+      <div class="media-body border-bottom">
+        <h2>{{ forloop.counter }}<a class="article-title ml-5" href="{% url 'blog-detail' post.id %}">{{ post.title }}</a></h2>
+        <p class="article-content text-left ml-5">{{ post.description }}</p>
+      </div>
+    </article>
+    {% endfor %}
+    
+
+    
+
+</div>
